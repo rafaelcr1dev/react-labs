@@ -14,7 +14,7 @@ const HomePage = ({ title }: HomePagePropTypes) => {
 
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
           <li>
-            <Link to="/about">REACT: PASAJE DE PROPIEDADES</Link>
+            <Link to="/cart">REACT: PASAJE DE PROPIEDADES</Link>
           </li>
           <li>
             <Link to="/about">Local State x Global State</Link>

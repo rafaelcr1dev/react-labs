@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Layout from "./pages/layout";
-import HomePage from "./pages/home";
+import Layout from "@/pages/layout";
+import HomePage from "@/pages/home";
+import PropertyPassionPage from "@/pages/cart";
 
 import "./App.css";
 
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<HomePage title="Labs" />} />
-          <Route path="/about" element={<HomePage title="About" />} />
+          <Route path="/cart" element={<PropertyPassionPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
