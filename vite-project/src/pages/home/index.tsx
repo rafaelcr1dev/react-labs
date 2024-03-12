@@ -17,7 +17,7 @@ const HomePage = ({ title }: HomePagePropTypes) => {
             <Link to="/cart">REACT: PASAJE DE PROPIEDADES</Link>
           </li>
           <li>
-            <Link to="/about">Local State x Global State</Link>
+            <Link to="/caching">Caching</Link>
           </li>
         </ul>
       </main>
