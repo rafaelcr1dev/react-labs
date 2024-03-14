@@ -56,7 +56,7 @@ const CounterResultsComponent = memo(
   }
 );
 
-const ParentComponent = () => {
+const CardComponent = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
 
@@ -79,7 +79,7 @@ const ParentComponent = () => {
     setCount(0);
   }, []);
 
-  console.log("rendering ParentComponent...");
+  console.log("rendering CardComponent...");
 
   return (
     <Card className="w-[350px] mt-8">
@@ -117,7 +117,7 @@ const CachingPage = () => {
   return (
     <>
       <main>
-        <ParentComponent />
+        <CardComponent />
       </main>
     </>
   );

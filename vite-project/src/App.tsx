@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "@/pages/layout";
 import HomePage from "@/pages/home";
 import PropertyPassionPage from "@/pages/cart";
-import CachingPage from "./pages/caching/bad";
+import CachingPage from "./pages/caching";
 
 import "./App.css";
 
