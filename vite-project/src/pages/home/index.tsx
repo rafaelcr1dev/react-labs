@@ -19,6 +19,15 @@ const HomePage = ({ title }: HomePagePropTypes) => {
           <li>
             <Link to="/caching">Caching</Link>
           </li>
+          <li>
+            <Link to="/manager-state/http-state">HTTP STATE</Link>
+          </li>
+          <li>
+            <Link to="/manager-state/local-state">LOCAL STATE</Link>
+          </li>
+          <li>
+            <Link to="/manager-state/global-state">GLOBAL STATE</Link>
+          </li>
         </ul>
       </main>
     </>
