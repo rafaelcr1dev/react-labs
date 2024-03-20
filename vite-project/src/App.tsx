@@ -5,7 +5,7 @@ import HomePage from "@/pages/home";
 import PropertyPassionPage from "@/pages/cart";
 import CachingPage from "@/pages/caching";
 import HttpStatePage from "@/pages/manager-state/http/default";
-import HttpLocalDefault from "./pages/manager-state/local/default";
+import HttpLocalDefault from "./pages/manager-state/local";
 
 import "./App.css";
 
