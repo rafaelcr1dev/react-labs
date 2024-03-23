@@ -5,7 +5,8 @@ import HomePage from "@/pages/home";
 import PropertyPassionPage from "@/pages/cart";
 import CachingPage from "@/pages/caching";
 import HttpStatePage from "@/pages/manager-state/http/default";
-import HttpLocalDefault from "./pages/manager-state/local";
+import HttpLocalDefault from "@/pages/manager-state/local";
+import Cart from "@/pages/manager-state/global/pages/cart";
 
 import "./App.css";
 
@@ -22,7 +23,7 @@ function App() {
             path="manager-state/local-state"
             element={<HttpLocalDefault />}
           />
-          <Route path="manager-state/global-state" element={<CachingPage />} />
+          <Route path="manager-state/global-state" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>
