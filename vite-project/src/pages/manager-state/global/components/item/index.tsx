@@ -11,13 +11,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { Button } from "@/components/ui/button";
+import useItemsStore, {
+  ItemStoreTypes,
+} from "@/pages/manager-state/global/store/use-items-store";
+import { ItemTypes } from "@/types/item";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { TrashIcon } from "@radix-ui/react-icons";
 
-import { Button } from "@/components/ui/button";
+const Item: React.FC<ItemTypes> = (itemProps) => {
+  const { id, name, brand, price, image, quantity } = itemProps;
+  const { removeItem, changeQuantityItem } = useItemsStore() as ItemStoreTypes;
 
-const Item: React.FC = ({ name, brand, price, image, quantity }: any) => {
   return (
     <li className="flex items-center space-x-4 border p-4 mb-4">
       <Avatar>
@@ -30,7 +37,10 @@ const Item: React.FC = ({ name, brand, price, image, quantity }: any) => {
         <p className="text-md font-medium">{price.formatted}</p>
       </div>
 
-      <Select defaultValue={quantity}>
+      <Select
+        defaultValue={quantity}
+        onValueChange={(value) => changeQuantityItem(itemProps, value)}
+      >
         <SelectTrigger className="w-[110px]">
           <SelectValue placeholder="Quantity" />
         </SelectTrigger>
@@ -46,7 +56,7 @@ const Item: React.FC = ({ name, brand, price, image, quantity }: any) => {
         </SelectContent>
       </Select>
 
-      <Button variant="link" onClick={() => false}>
+      <Button variant="link" onClick={() => removeItem(id)}>
         <TrashIcon className="h-6 w-6" />
       </Button>
     </li>

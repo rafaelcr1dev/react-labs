@@ -1,12 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import Item from "../item";
-import { itemsData } from "@/mocks/items-data";
+import { ItemTypes } from "@/types/item";
 
-const Items: React.FC = () => {
+type ItemsProps = {
+  items: ItemTypes[];
+};
+
+const Items: React.FC<ItemsProps> = ({ items }) => {
   return (
     <section className="w-3/4 mr-8">
       <ul>
-        {itemsData.map((item) => (
+        {items.map((item: ItemTypes) => (
           <Item {...item} key={item.id} />
         ))}
       </ul>

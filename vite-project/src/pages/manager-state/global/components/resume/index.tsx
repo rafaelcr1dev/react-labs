@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useMemo } from "react";
 
 import {
   Table,
@@ -10,8 +11,24 @@ import {
 } from "@/components/ui/table";
 
 import { Button } from "@/components/ui/button";
+import useItemsStore from "../../store/use-items-store";
 
 const Resume: React.FC = () => {
+  const { totalPrice, calculateTotalPrice, items }: any = useItemsStore();
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [items]);
+
+  const formattedPrice = useMemo(
+    () =>
+      new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(totalPrice),
+    [totalPrice]
+  );
+
   const invoices = [
     {
       invoice: "Shipping",
@@ -47,13 +64,13 @@ const Resume: React.FC = () => {
           <TableRow>
             <TableCell colSpan={3}>Total</TableCell>
             <TableCell className="text-right">
-              <strong>$2,500.00</strong>
+              <strong>{formattedPrice}</strong>
             </TableCell>
           </TableRow>
         </TableFooter>
       </Table>
 
-      <Button size="lg" className="w-full mt-4">
+      <Button size="lg" className="w-full mt-4" onClick={calculateTotalPrice}>
         Go to checkout
       </Button>
     </section>
