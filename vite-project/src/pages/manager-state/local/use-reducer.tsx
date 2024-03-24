@@ -11,10 +11,13 @@ import {
 import FormDefault from "./components/use-reducer/form";
 import ListDefault from "./components/use-reducer/list";
 
-import { TODO_STATE, todoReducer } from "@/pages/manager-state/local/store";
+import {
+  INITIAL_TODO_STATE,
+  todoReducer,
+} from "@/pages/manager-state/local/store";
 
-const HttpStateLocalUseReducer = () => {
-  const [state] = useReducer(todoReducer, TODO_STATE);
+const LocalStateUseReducer = () => {
+  const [state] = useReducer(todoReducer, INITIAL_TODO_STATE);
 
   return (
     <Card className="w-[600px] mt-8">
@@ -35,4 +38,4 @@ const HttpStateLocalUseReducer = () => {
   );
 };
 
-export default HttpStateLocalUseReducer;
+export default LocalStateUseReducer;

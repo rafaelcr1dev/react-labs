@@ -14,11 +14,11 @@ import {
 import FormDefault from "./components/default/form";
 import ListDefault from "./components/default/list";
 
-const TODO_STATE_INITIAL = { name: "", id: null };
+const INITIAL_TODO_STATE = { name: "", id: null };
 
-const HttpLocalDefault = () => {
+const LocalStateDefault = () => {
   const [todos, setTodos] = useState<any>([]);
-  const [todo, setTodo] = useState<any>(TODO_STATE_INITIAL);
+  const [todo, setTodo] = useState<any>(INITIAL_TODO_STATE);
   const [debouncedValue] = useDebounce(todo, 200);
 
   const handleSubmit = useCallback(
@@ -35,7 +35,7 @@ const HttpLocalDefault = () => {
           t.id === todo.id ? { ...t, name: todo.name } : t
         );
         setTodos(updatedTodos);
-        setTodo(TODO_STATE_INITIAL);
+        setTodo(INITIAL_TODO_STATE);
         return;
       }
 
@@ -43,7 +43,7 @@ const HttpLocalDefault = () => {
         ...prev,
         { id: todos.length + 1, name: todo.name },
       ]);
-      setTodo(TODO_STATE_INITIAL);
+      setTodo(INITIAL_TODO_STATE);
     },
     [debouncedValue]
   );
@@ -87,4 +87,4 @@ const HttpLocalDefault = () => {
   );
 };
 
-export default HttpLocalDefault;
+export default LocalStateDefault;

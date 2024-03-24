@@ -1,13 +1,13 @@
 import { TodoContext } from "@/contexts/todo-context";
 import { useTodo } from "./store/use-todo";
-import HttpStateLocalUseReducer from "./use-reducer";
+import StateLocalUseReducer from "./use-reducer";
 
-const HttpStatePage = () => {
+const LocalStatePage = () => {
   return (
     <TodoContext.Provider value={{ ...useTodo() }}>
-      <HttpStateLocalUseReducer />
+      <StateLocalUseReducer />
     </TodoContext.Provider>
   );
 };
 
-export default HttpStatePage;
+export default LocalStatePage;

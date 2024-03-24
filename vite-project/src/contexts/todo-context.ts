@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { TODO_STATE } from "@/pages/manager-state/local/store";
+import { UseTodoReturn } from "@/pages/manager-state/local/store/use-todo";
 import { createContext } from "react";
 
-const todo = TODO_STATE as any;
+const todo = {} as  UseTodoReturn;
 
 export const TodoContext = createContext(todo);

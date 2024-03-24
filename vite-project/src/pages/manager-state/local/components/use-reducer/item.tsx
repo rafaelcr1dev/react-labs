@@ -5,12 +5,17 @@ import { TrashIcon, UpdateIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
 import { TodoContext } from "@/contexts/todo-context";
+import { TodoTypes } from "@/types/todo";
 
-const ItemDefault = ({ todo }: any) => {
-  const { state, dispatch, actions } = useContext(TodoContext) as any;
+type ItemDefaultPropTypes = {
+  todo: TodoTypes;
+};
+
+const ItemDefault = ({ todo }: ItemDefaultPropTypes) => {
+  const { state, dispatch, actions } = useContext(TodoContext);
 
   const handleDeleteTodo = useCallback(
-    (todo: any) => {
+    (todo: TodoTypes) => {
       dispatch({
         type: actions.DELETE_TODO,
         payload: todo,

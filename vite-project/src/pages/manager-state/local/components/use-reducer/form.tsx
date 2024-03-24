@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { TodoContext } from "@/contexts/todo-context";
 
 const FormDefault = () => {
-  const { state, dispatch, actions } = useContext(TodoContext) as any;
+  const { state, dispatch, actions } = useContext(TodoContext);
   const [debouncedValue] = useDebounce(state.todo, 200);
 
   const handleSubmit = useCallback(
