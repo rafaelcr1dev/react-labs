@@ -38,7 +38,7 @@ const HttpStateReactQuery = () => {
       <CardHeader>
         <CardTitle>Users (RQ)</CardTitle>
         {users && users.length > 0 && (
-          <CardDescription>You haves {users.length} users.</CardDescription>
+          <CardDescription>You have {users.length} users.</CardDescription>
         )}
       </CardHeader>
       <CardContent className="grid gap-4">

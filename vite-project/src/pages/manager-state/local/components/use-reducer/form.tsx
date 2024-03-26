@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCallback, useContext } from "react";
-import { useDebounce } from "use-debounce";
+import { useContext } from "react";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,29 +8,25 @@ import { TodoContext } from "@/contexts/todo-context";
 
 const FormDefault = () => {
   const { state, dispatch, actions } = useContext(TodoContext);
-  const [debouncedValue] = useDebounce(state.todo, 200);
 
-  const handleSubmit = useCallback(
-    (e: any): void => {
-      e.preventDefault();
+  const handleSubmit = (e: any): void => {
+    e.preventDefault();
 
-      if (!state.todo.name) {
-        alert("Please enter a todo name.");
-        return;
-      }
+    if (!state.todo.name) {
+      alert("Please enter a todo name.");
+      return;
+    }
 
-      if (state.todo.id) {
-        dispatch({ type: actions.UPDATE_TODO, payload: state.todo });
-        return;
-      }
+    if (state.todo.id) {
+      dispatch({ type: actions.UPDATE_TODO, payload: state.todo });
+      return;
+    }
 
-      dispatch({
-        type: actions.SET_TODOS,
-        payload: state.todo,
-      });
-    },
-    [debouncedValue]
-  );
+    dispatch({
+      type: actions.SET_TODOS,
+      payload: state.todo,
+    });
+  };
 
   const handleInputChange = (e: any) => {
     dispatch({

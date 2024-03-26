@@ -11,10 +11,11 @@ import {
 } from "@/components/ui/table";
 
 import { Button } from "@/components/ui/button";
-import useItemsStore from "../../store/use-items-store";
+import useItemsStore, { ItemStoreTypes } from "../../store/use-items-store";
 
 const Resume: React.FC = () => {
-  const { totalPrice, calculateTotalPrice, items }: any = useItemsStore();
+  const { totalPrice, calculateTotalPrice, items } =
+    useItemsStore() as ItemStoreTypes;
 
   useEffect(() => {
     calculateTotalPrice();

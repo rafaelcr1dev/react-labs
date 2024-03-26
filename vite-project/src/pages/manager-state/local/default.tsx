@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useCallback } from "react";
-import { useDebounce } from "use-debounce";
 
 import {
   Card,
@@ -19,34 +18,30 @@ const INITIAL_TODO_STATE = { name: "", id: null };
 const LocalStateDefault = () => {
   const [todos, setTodos] = useState<any>([]);
   const [todo, setTodo] = useState<any>(INITIAL_TODO_STATE);
-  const [debouncedValue] = useDebounce(todo, 200);
 
-  const handleSubmit = useCallback(
-    (e: any): void => {
-      e.preventDefault();
+  const handleSubmit = (e: any): void => {
+    e.preventDefault();
 
-      if (!todo.name) {
-        alert("Please enter a todo name.");
-        return;
-      }
+    if (!todo.name) {
+      alert("Please enter a todo name.");
+      return;
+    }
 
-      if (todo.id) {
-        const updatedTodos = todos.map((t: any) =>
-          t.id === todo.id ? { ...t, name: todo.name } : t
-        );
-        setTodos(updatedTodos);
-        setTodo(INITIAL_TODO_STATE);
-        return;
-      }
-
-      setTodos((prev: any) => [
-        ...prev,
-        { id: todos.length + 1, name: todo.name },
-      ]);
+    if (todo.id) {
+      const updatedTodos = todos.map((t: any) =>
+        t.id === todo.id ? { ...t, name: todo.name } : t
+      );
+      setTodos(updatedTodos);
       setTodo(INITIAL_TODO_STATE);
-    },
-    [debouncedValue]
-  );
+      return;
+    }
+
+    setTodos((prev: any) => [
+      ...prev,
+      { id: todos.length + 1, name: todo.name },
+    ]);
+    setTodo(INITIAL_TODO_STATE);
+  };
 
   const handleInputChange = useCallback((e: any) => {
     const value = e.target.value;
