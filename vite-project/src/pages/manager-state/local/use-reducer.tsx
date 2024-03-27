@@ -1,5 +1,3 @@
-import { useReducer } from "react";
-
 import {
   Card,
   CardContent,
@@ -11,13 +9,11 @@ import {
 import FormDefault from "./components/use-reducer/form";
 import ListDefault from "./components/use-reducer/list";
 
-import {
-  INITIAL_TODO_STATE,
-  todoReducer,
-} from "@/pages/manager-state/local/store";
+import { useContext } from "react";
+import { TodoContext } from "@/contexts/todo-context";
 
 const LocalStateUseReducer = () => {
-  const [state] = useReducer(todoReducer, INITIAL_TODO_STATE);
+  const { state } = useContext(TodoContext);
 
   return (
     <Card className="w-[600px] mt-8">
